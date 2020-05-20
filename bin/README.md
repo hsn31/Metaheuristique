@@ -1,12 +1,6 @@
 # Heuristic methods for JobShop scheduling
 
-Vous trouverez l'ensemble des fichiers associés au projet de Metaheuristique. 
-
-Hichem SAHRAOUI \
-INSA Toulouse \
-Promo 54 \
-4IR \
-
+This repository contains the starter code for the assignment.
 
 
 ## Compile
