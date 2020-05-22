@@ -36,7 +36,8 @@ public class Main {
 		solvers.put("greedyest_lrpt",	new GreedySolver(Priority.EST_LRPT));
 		
 		solvers.put("descent",	new DescentSolver());
-		solvers.put("taboo",	new TabooSolver(10, 500));
+		//en milisecondes
+		solvers.put("taboo",	new TabooSolver(1000,10000 ));
         // add new solvers here
 		
 		//Validation des tests sur le solveur par Marie Jo le 24/04/2020

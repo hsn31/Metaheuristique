@@ -100,7 +100,8 @@ public class TabooSolver implements Solver {
      * 
      */
     
-
+//--solver greedyest_lrpt descent taboo --instance aaa1 ft06 ft10 ft20 la01 la02 la03 la04 la05 la06 la07 la08 la09
+    
     Boolean bool;
     Schedule best;
     Schedule current;
@@ -143,16 +144,16 @@ public class TabooSolver implements Solver {
         		List<Swap> swaps= neighbors(block);
 
         		for(Swap swap: swaps) {
-        			ResourceOrder temp= new ResourceOrder(current);
+        			ResourceOrder temp= order.copy();
         			
         			if (Taboo[swap.t1 + instance.numJobs * swap.machine][swap.t2 + instance.numJobs * swap.machine] <= compt) {
-        			swap.applyOn(temp);
+        			    swap.applyOn(temp);
         			
         			Schedule duration= temp.toSchedule();
         			//System.out.println("TEST MAKESPAN" + duration);
         			
     				if(order == null || (duration.makespan() < order.toSchedule().makespan())) {
-    					order = temp;
+    					order = temp.copy();
     					MeilleurSwap=  new Swap(swap.machine, swap.t1, swap.t2);
             			bool=true;
     				}
@@ -170,7 +171,8 @@ public class TabooSolver implements Solver {
         	
         	System.out.print("*********");
         	*/
-            Taboo[MeilleurSwap.t1 + instance.numJobs * MeilleurSwap.machine][MeilleurSwap.t2 + instance.numJobs * MeilleurSwap.machine] = compt + dureeTaboo;
+            
+            Taboo[MeilleurSwap.t2 + instance.numJobs * MeilleurSwap.machine][MeilleurSwap.t1 + instance.numJobs * MeilleurSwap.machine] = compt + dureeTaboo;
             current = order.toSchedule();
         	}
 
